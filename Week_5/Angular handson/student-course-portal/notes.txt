@@ -1,0 +1,8 @@
+angular.json — configuration for how the Angular CLI builds/serves/tests the project
+tsconfig.json — base TypeScript compiler settings for the whole workspace
+tsconfig.app.json — TypeScript settings specific to the app build
+package.json — lists project dependencies and npm scripts (like ng serve)
+src/main.ts — the entry point; bootstraps the app
+src/app/app.config.ts (Angular 20 uses this instead of app.module.ts — standalone mode) — registers app-wide providers (router, HTTP client, etc.)
+src/app/app.component.ts — the root component of the app
+src/index.html — the single HTML page the whole SPA loads into

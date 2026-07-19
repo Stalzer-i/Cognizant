@@ -7,12 +7,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-@Component({
-  selector: 'app-home',
-  imports: [],
-  templateUrl: './home.html',
-  styleUrl: './home.css',
-})
+
 export class Home {
   portalName = 'Student Course Portal';
 isPortalActive = true;

@@ -1,0 +1,18 @@
+Hands-On 1 — Environment Setup, Project Structure & First Component — Completion Notes
+Task 1: Project Setup
+
+Created Angular workspace using ng new student-course-portal --routing --style=css
+Documented purpose of 8 core files in notes.txt: angular.json, tsconfig.json, tsconfig.app.json, package.json, main.ts, app.config.ts, app.ts, index.html
+Verified ng serve runs the app successfully at http://localhost:4200
+Ran ng build — confirmed output in dist/student-course-portal/browser/ (note: this Angular version scaffolds SSR by default, producing both server/ and browser/ folders; main-<hash>.js in browser/ is the compiled client app)
+Located budgets config in angular.json under architect > build > configurations > production — documented that maximumWarning triggers a build warning and maximumError fails the build when bundle size thresholds are exceeded
+
+Task 2: Component Creation
+
+Generated 4 components: components/header, pages/home, pages/course-list, pages/student-profile
+Confirmed this Angular CLI version uses simplified file/class naming (no .component suffix — e.g. header.ts, class Header, not HeaderComponent)
+Built HeaderComponent(Header) template with nav bar: portal name + Home/Courses/Profile links
+Built HomeComponent(Home) template with welcome heading, description, and stats row (Courses Available: 12, Enrolled: 3, GPA: 3.8)
+Wired Header and router-outlet into root app.html, replacing default Angular boilerplate
+Configured default route (path: '') in app.routes.ts to render Home
+Verified in browser: header nav and home page content render together with no console/compile errors

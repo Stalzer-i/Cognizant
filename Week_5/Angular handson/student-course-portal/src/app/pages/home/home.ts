@@ -18,3 +18,6 @@ onEnrollClick() {
   this.message = 'Enrollment opened!';
 }
 }
+// [property] binding is one-way: data flows from the component class into the DOM only.
+// [(ngModel)] is two-way: it both displays the component's value in the DOM AND
+// updates the component's property when the user changes the input, keeping both in sync.

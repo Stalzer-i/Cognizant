@@ -1,0 +1,32 @@
+Hands-On 2 — Data Binding, Lifecycle Hooks & Component Communication — Completion Notes
+Task 1: All Four Binding Types
+
+Implemented string interpolation: {{ portalName }} displays a component property in the template
+Implemented property binding: [disabled]="!isPortalActive" controls the Enroll Now button's disabled state from the component class
+Implemented event binding: (click)="onEnrollClick()" triggers a method on click, updating a message property
+Implemented two-way binding: [(ngModel)]="searchTerm" keeps an input field and component property in sync in both directions; imported FormsModule to enable it
+Documented in code comments the distinction between one-way [property] binding (component → DOM only) and two-way [(ngModel)] binding (DOM ↔ component)
+
+Task 2: Lifecycle Hooks
+
+Implemented ngOnInit() in Home component — logs initialization message, used for setup/data-loading logic (fires after inputs are set, unlike the constructor)
+Implemented ngOnDestroy() in Home component — logs a cleanup message, demonstrating where unsubscribe/cleanup logic belongs
+Generated CourseCard component and implemented ngOnChanges(changes: SimpleChanges) — logs previous and current value of the course @Input whenever it changes
+Verified in browser console that ngOnChanges fires once per card on initial render of the course list
+
+Task 3: @Input and @Output — Parent-Child Communication
+
+Defined a typed @Input() course: CourseInput on CourseCard, rendering course name, code, and credits in its template
+Defined @Output() enrollRequested = new EventEmitter<number>(), emitting the course ID when the Enroll button is clicked
+In CourseList, rendered a CourseCard per course using *ngFor, binding [course]="c" (down) and (enrollRequested)="onEnroll($event)" (up)
+Implemented onEnroll(courseId: number) to log the enrollment and update selectedCourseId, displayed conditionally with *ngIf
+
+Routing note (supporting work for this hands-on):
+
+Added /courses route in app.routes.ts pointing to CourseList, and wired routerLink navigation in the header nav so the Courses page is reachable
+
+Issues encountered & resolved:
+
+CLI's modern class-naming convention (no Component suffix, e.g. CourseCard, CourseList) required matching import names carefully throughout
+Unsaved files in VS Code repeatedly caused the running dev server to serve stale code, producing confusing "broken" states — resolved by explicitly saving all open tabs (Ctrl+K S) before checking results
+CourseCard component wasn't generated before being referenced in CourseList, causing an unresolved import — resolved by running ng generate component components/course-card
